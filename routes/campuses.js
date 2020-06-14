@@ -18,18 +18,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/students", async (req,res, next) => {
-  try{
-    const students = await Student.findAll({ include: Campus});
-    console.log(students);
-    res.status(200).json(students);
-  }catch(err){
-    next(err);
-  }
-});
-
-
-
 // Route to serve single campus based on its id
 // /api/campuses/:id
 // /api/campuses/456 would respond with a campus with id 456
